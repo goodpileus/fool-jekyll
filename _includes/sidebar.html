@@ -1,0 +1,52 @@
+<nav class="menu" id="nav">
+
+    <a class="menu-item {% if page.url == site.baseurl %} active {% endif %}" href="{{ site.baseurl }}/">root</a>
+
+    {% comment %}
+      The code below dynamically generates a sidebar nav of pages with `layout: page` in the front-matter. See readme for usage.
+    {% endcomment %}
+
+    {% assign pages_list = site.pages | sort:"url" %}
+    {% for node in pages_list %}
+      {% if node.title != null and node.url != "/404.html" %}
+        {% if node.layout == "page" %}
+          <a class="menu-item{% if page.url == node.url %} active{% endif %}" href="{{ site.baseurl }}{{ node.url }}">{{ node.title }}</a>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+
+    <!-- {% assign texts = site.texts | sort:"order" %}
+    {% for item in texts %}
+      {% for tag in item.tags %}
+        <h3>{{ tag }}</h3>
+          <a class="menu-item{% if page.url == item.url %} active{% endif %}" href="{{ site.baseurl }}{{ item.url }}">
+            {{ item.title }}
+          </a>
+      {% endfor %}
+    {% endfor %} -->
+    
+
+    {% assign groups = site.texts | group_by: "category" | sort: "order" %}
+    {% for group in groups %}
+    
+    {% if group.name == 'ignore' %}
+      {% for item in group.items %}
+        <a class="menu-item{% if page.url == item.url %} active{% endif %}" href="{{ site.baseurl }}{{ item.url }}">
+          {{ item.title }}
+        </a>
+      {%endfor%}
+      </details>
+    {%endif%}
+    
+    {% if group.name != 'ignore' %}
+      <details id="{{ group.name }}">
+      <summary>{{ group.name }}</summary>
+      {% for item in group.items %}
+        <a class="menu-item{% if page.url == item.url %} active{% endif %}" href="{{ site.baseurl }}{{ item.url }}">
+          {{ item.title }}
+        </a>
+      {%endfor%}
+      </details>
+    {%endif%}
+{%endfor%}
+</nav>

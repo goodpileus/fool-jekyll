@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  {% include head.html %}
+
+  <body>
+  <div class="earth"></div>
+  <div class="filter"></div>
+
+    <div class="wrap">
+      <div class="horiz">
+        <button class="navigation-btn side">navigation</button>
+        <div class="center">{{ page.title }}</div>
+        <button class="power-btn side">maintenance</button>
+      </div>
+      <main class="container" id="main">
+        <div class="side">
+          {% include sidebar.html %}
+        </div>
+        <div class="content">{{ content }}</div>
+        <div class="side">
+
+          <div class="power">
+            <div class="energy-capsule">
+              <div class="first">
+                <div>
+                  <div>
+                    <div>
+                      <img src="{{ site.baseurl }}/assets/apple.gif" alt="energy source" title="energy source">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button class="filter1">dark</button>
+          </div>
+
+        </div>
+      </main>
+      <div class="horiz">
+
+        {% if page.previous.url %}
+          <a id="prev-btn" class="prev page-btn side" href="{{ site.baseurl }}{{page.previous.url}}"><</a>
+          {% else %}
+          <a id="prev-btn" class="prev page-btn side" href="{{ site.baseurl }}{% link _texts/4.92-darkness.md %}"><</a>
+        {% endif %}
+
+        <!-- <button class="prev-btn side"><</button> -->
+        <div class="center">seek</div>
+
+        
+        {% if page.next.url %}
+          <a id="next-btn" class="next page-btn side" href="{{ site.baseurl }}{{page.next.url}}">></a>
+          {% else %}
+          <a id="next-btn" class="next page-btn side" href="{{ site.baseurl }}{% link _texts/0-with.md %}">></a>
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- <label for="sidebar-checkbox" class="sidebar-toggle" checked="checked">...</label> -->
+
+    <span id="timer"></span>
+
+    <!-- <div class="screensaver"></div> -->
+
+    <script
+    src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+    crossorigin="anonymous"></script>
+    <script src="{{ site.baseurl }}/assets/js/js.cookie.min.js"></script>
+    <script src="{{ site.baseurl }}/assets/js/functions.js"></script>
+
+    <script>
+      $("#{{ page.categories }}").attr("open", "open");
+    </script>
+
+  </body>
+</html>
