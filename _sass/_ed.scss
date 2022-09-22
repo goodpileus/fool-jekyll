@@ -137,6 +137,13 @@ body {
   border:none;
 }
 
+.page-btn {
+  font-size:.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .seek {
   display:flex;
   width:100%;
@@ -173,6 +180,15 @@ body {
   height:100%;
   width:100%;
   background:$bg;
+}
+
+.content.active {
+  opacity:0;
+  background:transparent;
+}
+
+.content.active article {
+  display:none;
 }
 
 article {
@@ -339,23 +355,40 @@ button:active {
 
 .menu {
   flex-direction: column;
-  overflow-y: auto;
+  overflow-x:unset;
   width:300px;
   /* height:100%; */
   /* background:url('../img/crack.png'); */
-  flex-flow: column;
-  padding:1rem;
-  background:$bg;
   border-bottom:3px double;
-  max-height: calc(100vh - 3rem + 1px);
+  max-height: calc(100vh - 3rem + 3px);
   /* display: none; */
   // pointer-events: all;
   display:none;
   z-index:99;
+  position: relative;
+  background:$bg;
+}
+
+.menu::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -3px;
+  background: inherit;
+  height: calc(100% + 3px);
+  border-left: 3px double;
 }
 
 .menu.active {
   display:flex;
+}
+
+.menu-inner {
+  overflow-y: auto;
+  height:100%;
+  flex-flow: column;
+  padding:1rem;
+  background:$bg;
 }
 
 .menu-item {
@@ -470,6 +503,17 @@ details details a {
   display: none;
   border-bottom:3px double;
   padding:1rem;
+  position: relative;
+}
+
+.power.active::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -3px;
+  background: inherit;
+  height: calc(100% + 3px);
+  border-left: 3px double;
 }
 
 .power.active {

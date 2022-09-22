@@ -121,6 +121,24 @@ $(".fn").click(function() {
 });
 
 
+
+
+if(Cookies.get('text') == 'true') {
+  $('.content').addClass( "active");
+}
+
+$(".text-btn").click(function() {
+  $( '.content' ).toggleClass( "active" );
+
+  if(Cookies.get('text') == 'true') {
+    Cookies.set('text', false);
+  } else {
+    Cookies.set('text', true);
+  }
+});
+
+
+
 if(Cookies.get('nav') == 'true') {
   $('.menu').addClass( "active");
 }
