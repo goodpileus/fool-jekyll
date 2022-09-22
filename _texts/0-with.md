@@ -3,6 +3,8 @@ layout: chapter
 title:  "-"
 order: 0
 category: ignore
+slug: o
+permalink: /:slug
 ---
 
 - > *If I knew, I would speak.*

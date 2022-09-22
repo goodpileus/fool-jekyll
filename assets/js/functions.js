@@ -99,6 +99,22 @@ function resetTimer() {
 // document.addEventListener("keypress", resetTimer);
 // startTimer();
 
+var audio = document.getElementById("audio");
+
+function playAudio() {
+  audio.play();
+}
+
+function openSound() {
+  $('.exam').hide();
+  $('.audio-wrap').show();
+  audio.play();
+}
+
+function pauseAudio() {
+  audio.pause();
+} 
+
 
 $(".fn").click(function() {
   $( this ).next( ".fnc" ).toggleClass( "fnc-show" );

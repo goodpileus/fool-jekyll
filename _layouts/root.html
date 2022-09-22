@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+{% include head.html %}
+
+<body>
+  <!-- <div class="earth"></div> -->
+  <div class="filter"></div>
+  <div class="wrap">
+    <div class="horiz"></div>
+    <main class="container" id="main">
+      <div class="side"></div>
+      <div class="content">{{ content }}</div>
+      <div class="side"></div>
+    </main>
+    <div class="horiz"></div>
+  </div>
+
+  {% include footer.html %}
+
+  <script>
+    $("#{{ page.categories }}").attr("open", "open");
+  </script>
+
+</body>
+</html>

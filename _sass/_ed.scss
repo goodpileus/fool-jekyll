@@ -415,6 +415,14 @@ a.sidebar-nav-item:focus {
  width: 100%;
 }
 
+#nav details details summary {
+  padding-left:1rem;
+}
+
+#nav details details a {
+  padding-left:2rem;
+}
+
 details summary::marker {
   display: none;
 }
@@ -429,15 +437,15 @@ details summary {
 
 details[open] summary {
   margin-bottom:1rem;
-  background: $acc;
+  // background: $acc;
 }
 
 details[open] > summary:after {
- content: '/..';
+ content: '/';
 }
 
 details > summary:after {
- content: '/';
+ content: '/..';
 }
 
 details summary:hover {
@@ -446,6 +454,14 @@ details summary:hover {
 
 details summary::selection {
   background:transparent;
+}
+
+// details details summary {
+//   padding-left:1rem;
+// }
+
+details details a {
+  padding-left:2rem;
 }
 
 

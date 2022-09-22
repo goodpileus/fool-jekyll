@@ -1,6 +1,8 @@
 <nav class="menu" id="nav">
 
-    <a class="menu-item {% if page.url == site.baseurl %} active {% endif %}" href="{{ site.baseurl }}/">root</a>
+  <details open="">
+    <summary>root</summary>
+    <!-- <a class="menu-item {% if page.url == site.baseurl %} active {% endif %}" href="{{ site.baseurl }}/">root</a> -->
 
     {% comment %}
       The code below dynamically generates a sidebar nav of pages with `layout: page` in the front-matter. See readme for usage.
@@ -28,25 +30,26 @@
 
     {% assign groups = site.texts | group_by: "category" | sort: "order" %}
     {% for group in groups %}
-    
-    {% if group.name == 'ignore' %}
-      {% for item in group.items %}
-        <a class="menu-item{% if page.url == item.url %} active{% endif %}" href="{{ site.baseurl }}{{ item.url }}">
-          {{ item.title }}
-        </a>
-      {%endfor%}
-      </details>
-    {%endif%}
-    
-    {% if group.name != 'ignore' %}
-      <details id="{{ group.name }}">
-      <summary>{{ group.name }}</summary>
-      {% for item in group.items %}
-        <a class="menu-item{% if page.url == item.url %} active{% endif %}" href="{{ site.baseurl }}{{ item.url }}">
-          {{ item.title }}
-        </a>
-      {%endfor%}
-      </details>
-    {%endif%}
-{%endfor%}
+      
+      {% if group.name == 'ignore' %}
+        {% for item in group.items %}
+          <a class="menu-item{% if page.url == item.url %} active{% endif %}" href="{{ site.baseurl }}{{ item.url }}">
+            {{ item.title }}
+          </a>
+        {%endfor%}
+      {%endif%}
+      
+      {% if group.name != 'ignore' %}
+        <details id="{{ group.name }}">
+        <summary>{{ group.name }}</summary>
+        {% for item in group.items %}
+          <a class="menu-item{% if page.url == item.url %} active{% endif %}" href="{{ site.baseurl }}{{ item.url }}">
+            {{ item.title }}
+          </a>
+        {%endfor%}
+        </details>
+      {%endif%}
+    {%endfor%}
+
+  </details>
 </nav>
