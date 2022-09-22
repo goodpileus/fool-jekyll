@@ -56,10 +56,10 @@ body {
 
 .earth {
   position: fixed;
-  width:calc(100vw - 3rem - 4px);
+  width:calc(100vw - 3rem - 6px);
   height:100vh;
   top:0;
-  left: calc(1.5rem + 2px);
+  left: calc(1.5rem + 3px);
   // z-index: -1;
   background: url('../img/crack.png');
   /* opacity: .4; */
@@ -93,8 +93,8 @@ body {
   width: 100%;
   height:100%;
   // overflow-y: scroll;
-  border-right:2px double;
-  border-left:2px double;
+  border-right:3px double;
+  border-left:3px double;
   display:flex;
   flex-flow:column;
 
@@ -109,7 +109,7 @@ body {
   display: flex;
   justify-content: space-between;
   // padding:0 1.5rem;
-  border-bottom:2px double;
+  border-bottom:3px double;
   // background: var(--bg);
   text-align: center;
   background:$bg;
@@ -121,13 +121,13 @@ body {
 
 .horiz:last-of-type {
   border:none;
-  border-top:2px double;
+  border-top:3px double;
 }
 
 .center {
   border:none;
-  border-left:2px double;
-  border-right:2px double;
+  border-left:3px double;
+  border-right:3px double;
   width:100%;
 }
 
@@ -135,6 +135,25 @@ body {
   width:300px;
   flex-shrink:0;
   border:none;
+}
+
+.seek {
+  display:flex;
+  width:100%;
+}
+
+.seek .center {
+  width:100%;
+}
+
+.seek .side {
+  width:100%;
+  flex-shrink: unset;
+}
+
+.seek {
+  border-right:3px double;
+  border-left:3px double;
 }
 
 /*
@@ -149,8 +168,8 @@ body {
 .content {
   overflow-y: auto;
   padding:1.5rem;
-  border-left:2px double;
-  border-right:2px double;
+  border-left:3px double;
+  border-right:3px double;
   height:100%;
   width:100%;
   background:$bg;
@@ -305,7 +324,7 @@ button {
   background: transparent;
   color:inherit;
   font-family: inherit;
-  border: 2px double;
+  border: 3px double;
   box-shadow: inset 0 -2px #c2c2c2;
 }
 
@@ -327,7 +346,7 @@ button:active {
   flex-flow: column;
   padding:1rem;
   background:$bg;
-  border-bottom:2px double;
+  border-bottom:3px double;
   max-height: calc(100vh - 3rem + 1px);
   /* display: none; */
   // pointer-events: all;
@@ -433,7 +452,7 @@ details summary::selection {
 .power {
   background: $bg;
   display: none;
-  border-bottom:2px double;
+  border-bottom:3px double;
   padding:1rem;
 }
 
@@ -453,7 +472,8 @@ details summary::selection {
 
 .energy-capsule div {
   margin:.75rem;
-  border:2px double;
+  border:3px double;
+  background:rgba(254, 110, 110, 0.1);
 }
 
 .energy-capsule .first {

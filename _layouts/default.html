@@ -39,7 +39,8 @@
         </div>
       </main>
       <div class="horiz">
-
+        <div class="side"></div>
+        <div class="seek">
         {% if page.previous.url %}
           <a id="prev-btn" class="prev page-btn side" href="{{ site.baseurl }}{{page.previous.url}}"><</a>
           {% else %}
@@ -55,6 +56,8 @@
           {% else %}
           <a id="next-btn" class="next page-btn side" href="{{ site.baseurl }}{% link _texts/0-with.md %}">></a>
         {% endif %}
+        </div>
+        <div class="side"></div>
       </div>
     </div>
 
